@@ -1,0 +1,276 @@
+1. Write a JS program to input a number and check positive, negative or zero using if else.
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var number = prompt("Enter a valid number: ");
+		if(number>0){
+			document.write("The given number is positive");
+		}
+		else if(number<0){
+			document.write("The given number is negative");
+		}
+		else{
+			document.write("The given number is zero");
+		}
+	</script>
+</body>
+</html>
+------------------------------------------------------------------------------
+2. Write a JS program to input sides of a triangle and check whether a triangle is equilateral, scalene or isosceles triangle using if else.
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a,b,c;
+		a = prompt("Enter the first side value of a triangle: ");
+		b = prompt("Enter the second side value of a triangle: ");
+		c = prompt("Enter the third side value of a triangle: ");
+		if(a==b && b==c){
+			document.write("This is a equilateral triangle");
+		}
+		else if(a!=b && b!=c && a!=c){
+			document.write("This is a scalene triangle");
+		}
+		else if(a==b || a==c || b==c){
+			document.write("This is a isosceles triangle");
+		}
+	</script>
+</body>
+</html>
+--------------------------------------------------------------------------------
+3. Write a JS program to input sides of a triangle and check if its possible to create a triangle or not. 
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var a,b,c;
+		a = parseInt(prompt("Enter first side of a triangle: "));
+		b =parseInt(prompt("Enter second side of a triangle: "));
+		c = parseInt(prompt("Enter third side of a triangle: "));
+
+		if(a!=0 && b!=0 && c!=0){
+			checkAcuracy(a,b,c);
+		}
+		
+		function checkAcuracy(a, b, c){
+			if(a+b>c && b+c>a && c+a>b){
+				document.write("Valid");
+			}
+			else{
+				document.write("Invalid");
+			}
+		} 
+		
+	</script>
+</body>
+</html>
+------------------------------------------------------------------------------
+*4. Write a JS program to input marks of five subjects Physics, Chemistry, Biology, Mathematics and Computer, calculate percentage and grade according to given conditions:
+If percentage >= 90% : Grade A
+If percentage >= 80% : Grade B
+If percentage >= 70% : Grade C
+If percentage >= 60% : Grade D
+If percentage >= 40% : Grade E
+If percentage < 40% : Grade F 
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var physics = parseInt(prompt("Enter the marks of physics: "));
+		var chemistry = parseInt(prompt("Enter the marks of chemistry: "));
+		var biology = parseInt(prompt("Enter the marks of biology: "));
+		var mathematics = parseInt(prompt("Enter the marks of mathematics: "));
+		var computer = parseInt(prompt("Enter the marks of computer: "));
+
+		if(physics<40 || chemistry<40 || biology<40 || mathematics<40 || computer<40){
+			document.write("Fail");
+		}
+		else{
+			
+			var total = (physics + chemistry + biology + mathematics + computer);
+			document.write("Total: "+total+"<br>")
+			var avg= parseInt(total/5);
+			document.write("Percentage: "+avg+"<br>");
+			if(avg>=90){
+				document.write("Grade: A");
+			}
+			else if(avg>=80 && avg<90){
+				document.write("Grade: B");
+			}
+			else if(avg>=70 && avg<80){
+				document.write("Grade: C");
+			}
+			else if(avg>=60 && avg<70){
+				document.write("Grade: D");
+			}
+			else if(avg>=40 && avg<60){
+				document.write("Grade: E");
+			}
+		}
+	</script>
+</body>
+</html>
+--------------------------------------------------------------------------------------
+*5. Write a JS program to input electricity unit charge and calculate the total electricity bill according to the given condition:
+For the first 50 units Taka. 0.50/unit
+For the next 100 units, Taka. 0.75/unit
+For the next 100 units, Taka. 1.20/unit
+For units above 250 Taka. 1.50/unit
+An additional surcharge of 20% is added to each bill.
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		
+		var unit=prompt("Enter Your Units: ");
+		
+		var bill;
+		if(unit <= 50){
+			bill = 50 * 0.50;
+		}
+		else if(unit > 50 && unit <= 150){
+			bill = (50 * 0.50) + (unit-50) * 0.75;
+		}
+		else if(unit > 150 && unit <= 250){
+			bill = (50 * 0.50) + (100 * 0.75) + (unit-150) * 1.20;
+		}
+		else{
+			bill = (50 * 0.50) + (100 * 0.75) + (100 * 1.20) + ((unit-250)*1.50);
+		}
+		document.write(bill);
+		var total_bill = bill + (bill*20)/100;
+		document.write("Total Bill for unit: "+total_bill+"<br/>");
+
+		for(var i=1;i<=10;i++){
+			var res= 2*i;
+			document.write("2 * "+i+" = "+res+"<br/>");
+		}
+
+		var number = prompt("Enter a number to find the sum: ");
+		var sum=0, rem;
+		while(number!=0){
+			rem = number%10;
+			sum+=rem;
+			number= parseInt(number/10);
+		}
+		document.write("Sum: "+sum);
+	</script>
+</body>
+</html>
+-----------------------------------------------------------------------------
+
+*6.  Write a JS program to input a number in a variable and count the number of digits in the given integer and find out the sum of the all digits using a loop.
+input: 12345
+answer: 
+total digit: 5
+sum: 15
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">	
+		var rem,sum=0,count=0;
+		var num=parseInt(prompt("Enter a number: "));
+		while(num!=0){
+			rem=num%10;
+			sum+=rem;
+			num=parseInt(num/10);
+			count++;
+		}
+		document.write("Number of digits: "+count+"<br/>");
+		document.write("Sum of digits: "+sum);
+	</script>
+</body>
+</html>
+--------------------------------------------------------------------------------------
+*8. Write a JS program to print all Prime numbers between 1 to n using loop.
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var i,j,count;
+		var n =parseInt(prompt("Enter a number"));
+		 for(i=1; i<=n; i++)
+	    {
+	        count=0;
+	        for(j=1; j<=n; j++)
+	        {
+	            if(i%j==0)
+	                count++;
+	        }
+	        if(count==2)
+	            document.write(i+"<br>");
+	    }
+	</script>
+</body>
+</html>
+-------------------------------------------------------------------------
+9. Write a JS program to print Fibonacci series up to n terms using loop. 
+1 1 2 3 5 8 13 21 34 55
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var n=parseInt(prompt("Enter a number: "));
+		var first=0;
+		var second=1;
+		var i,third;
+		document.write(first+" "+second+" ");
+		for(i=3;i<=n;i++){
+			third=first+second;
+			document.write(third+" ");
+			first=second;
+			second=third;
+		}
+	</script>
+</body>
+</html>
+------------------------------------------------------------------------------------
+10. Write a JS program to find the sum of all natural numbers between 1 to n using for loop.
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var n = parseInt(prompt("Enter a number"));
+		var i,sum=0;
+		for(i=1;i<=n;i++){
+			sum+=i;
+		}
+		document.write("Sum for nth natural number: "+sum);
+	</script>
+</body>
+</html>
